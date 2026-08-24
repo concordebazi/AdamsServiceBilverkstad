@@ -1095,3 +1095,31 @@ img {
     }
 
 }
+/* =========================================================
+   PHONE LINK IN CONTACT SECTION
+   ========================================================= */
+
+.contact-card a[href^="tel:"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #7b2cbf;
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.contact-card a[href^="tel:"]::before {
+    content: "📞";
+}
+
+.contact-card a[href^="tel:"]:hover {
+    color: #5a189a;
+    transform: translateX(4px);
+}
