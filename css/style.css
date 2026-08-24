@@ -486,66 +486,42 @@ img {
 
 @media (max-width: 650px) {
 
-    .nav-container {
-        min-height: 72px;
-    }
-
-    .logo-main {
-        font-size: 1.35rem;
-    }
-
-    .logo-sub {
-        font-size: 0.45rem;
-    }
-
-    .navigation {
-        display: none;
-    }
-
-    .call-button {
-        padding: 9px 14px;
-        font-size: 0.85rem;
-    }
-
-    .hero {
-        min-height: 90vh;
-    }
-
-    .hero h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
-        letter-spacing: -2px;
-    }
-
-    .hero-text {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .primary-button,
-    .secondary-button {
-        width: 100%;
-    }
-
-    .section {
-        padding: 75px 0;
-    }
-
-    .section-heading {
-        margin-bottom: 40px;
-    }
-
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
+    .service-card {
+        min-height: 340px;
+        padding: 30px 25px;
+        border-radius: 14px;
     }
+
+    .service-card-content {
+        min-height: 280px;
+    }
+
+    .service-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .service-card p {
+        min-height: auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .service-link {
+        margin-top: 15px;
+    }
+
 }
 /* =========================================================
    SERVICE DETAIL PAGES
