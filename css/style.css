@@ -895,3 +895,82 @@ img {
     }
 
 }
+/* =========================================================
+   SERVICE CARD IMAGE BACKGROUND
+   ========================================================= */
+
+.service-bilservice {
+    position: relative;
+    min-height: 360px;
+    overflow: hidden;
+
+    background-image: url("../images/bilservice.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+
+    border: none;
+}
+
+
+/* DARK OVERLAY */
+
+.service-card-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.58);
+
+    z-index: 1;
+}
+
+
+/* CARD CONTENT */
+
+.service-card-content {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+/* TEXT */
+
+.service-bilservice h3 {
+    color: #ffffff;
+}
+
+.service-bilservice p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ICON */
+
+.service-bilservice .service-icon {
+    background: rgba(0, 0, 0, 0.75);
+    border-color: #7b2cbf;
+}
+
+
+/* LINK */
+
+.service-bilservice .service-link {
+    color: #ffffff;
+}
+
+.service-bilservice .service-link:hover {
+    color: #c77dff;
+}
+
+
+/* HOVER */
+
+.service-bilservice:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(123, 44, 191, 0.30);
+}
