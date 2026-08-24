@@ -103,9 +103,24 @@
 
                     <!-- BOOKING FORM -->
 
-                    <form class="booking-form"
-                          id="bookingForm">
+                <form class="booking-form"
+      id="bookingForm"
+      action="https://formspree.io/f/xppagqyr"
+      method="POST">
+<form class="booking-form"
+      id="bookingForm"
+      action="https://formspree.io/f/xppagqyr"
+      method="POST">
 
+    <input type="hidden"
+           name="subject"
+           value="Ny bokningsförfrågan - Adams Service Bilverkstad">
+
+    <div class="form-group">
+
+        <label for="service">
+            Välj tjänst
+        </label>
 
                         <div class="form-group">
 
@@ -476,40 +491,7 @@
     dateInput.min = today;
 
 
-    /* =====================================================
-       BOOKING FORM
-       ===================================================== */
 
-    bookingForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-
-        const service =
-            document.getElementById("service").value;
-
-        const date =
-            document.getElementById("booking-date").value;
-
-        const time =
-            document.getElementById("booking-time").value;
-
-        const name =
-            document.getElementById("customer-name").value;
-
-
-        alert(
-            "Tack " + name +
-            "! Din bokningsförfrågan för " +
-            service +
-            " den " +
-            date +
-            " kl. " +
-            time +
-            " har skickats."
-        );
-
-    });
 
 </script>
 
