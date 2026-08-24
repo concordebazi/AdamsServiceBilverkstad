@@ -436,22 +436,82 @@
 
 
 
-    <script>
+  <script>
 
-        const bookingForm =
-            document.getElementById("bookingForm");
+    const bookingForm =
+        document.getElementById("bookingForm");
 
-        bookingForm.addEventListener("submit", function(event) {
 
-            event.preventDefault();
+    /* =====================================================
+       AUTOMATICALLY SELECT SERVICE
+       ===================================================== */
 
-            alert(
-                "Tack! Din bokningsförfrågan är registrerad. Adams Service Bilverkstad kommer att kontakta dig för att bekräfta tiden."
-            );
+    const urlParams =
+        new URLSearchParams(window.location.search);
 
-        });
+    const selectedService =
+        urlParams.get("service");
 
-    </script>
+    const serviceSelect =
+        document.getElementById("service");
+
+
+    if (selectedService) {
+
+        serviceSelect.value = selectedService;
+
+    }
+
+
+    /* =====================================================
+       PREVENT PAST DATES
+       ===================================================== */
+
+    const dateInput =
+        document.getElementById("booking-date");
+
+    const today =
+        new Date().toISOString().split("T")[0];
+
+    dateInput.min = today;
+
+
+    /* =====================================================
+       BOOKING FORM
+       ===================================================== */
+
+    bookingForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const service =
+            document.getElementById("service").value;
+
+        const date =
+            document.getElementById("booking-date").value;
+
+        const time =
+            document.getElementById("booking-time").value;
+
+        const name =
+            document.getElementById("customer-name").value;
+
+
+        alert(
+            "Tack " + name +
+            "! Din bokningsförfrågan för " +
+            service +
+            " den " +
+            date +
+            " kl. " +
+            time +
+            " har skickats."
+        );
+
+    });
+
+</script>
 
 
 </body>
