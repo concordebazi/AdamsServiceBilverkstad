@@ -116,23 +116,13 @@ img {
 
 .logo {
     display: flex;
-    flex-direction: column;
-    line-height: 1;
+    align-items: center;
 }
 
-.logo-main {
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--white);
-}
-
-.logo-sub {
-    margin-top: 5px;
-    color: var(--bright-purple);
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+.logo-image {
+    width: 190px;
+    height: auto;
+    display: block;
 }
 
 
