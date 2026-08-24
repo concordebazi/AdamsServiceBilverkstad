@@ -974,3 +974,86 @@ img {
     transform: translateY(-8px);
     box-shadow: 0 20px 50px rgba(123, 44, 191, 0.30);
 }
+/* =========================================================
+   OTHER SERVICE CARD BACKGROUNDS
+   ========================================================= */
+
+.service-biltvatt {
+    background-image: url("../images/biltvatt.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.service-dackservice {
+    background-image: url("../images/dackservice.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.service-rekond {
+    background-image: url("../images/rekond.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.service-bilinspektion {
+    background-image: url("../images/bilinspektion.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.service-bilhandel {
+    background-image: url("../images/bilhandel.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* WHITE TEXT ON IMAGE CARDS */
+
+.service-biltvatt h3,
+.service-dackservice h3,
+.service-rekond h3,
+.service-bilinspektion h3,
+.service-bilhandel h3 {
+    color: #ffffff;
+}
+
+.service-biltvatt p,
+.service-dackservice p,
+.service-rekond p,
+.service-bilinspektion p,
+.service-bilhandel p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* SERVICE LINKS */
+
+.service-biltvatt .service-link,
+.service-dackservice .service-link,
+.service-rekond .service-link,
+.service-bilinspektion .service-link,
+.service-bilhandel .service-link {
+    color: #ffffff;
+}
+
+.service-biltvatt .service-link:hover,
+.service-dackservice .service-link:hover,
+.service-rekond .service-link:hover,
+.service-bilinspektion .service-link:hover,
+.service-bilhandel .service-link:hover {
+    color: #c77dff;
+}
+
+
+/* ICONS */
+
+.service-biltvatt .service-icon,
+.service-dackservice .service-icon,
+.service-rekond .service-icon,
+.service-bilinspektion .service-icon,
+.service-bilhandel .service-icon {
+    background: rgba(0, 0, 0, 0.75);
+    border-color: #7b2cbf;
+}
