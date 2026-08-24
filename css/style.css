@@ -1323,3 +1323,222 @@ img {
     }
 
 }
+/* =========================================================
+   BOOKING PAGE
+   ========================================================= */
+
+.booking-section {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    background: #0d0d0d;
+    color: #ffffff;
+}
+
+
+/* BOOKING LAYOUT */
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 50px;
+}
+
+
+/* FORM */
+
+.booking-form {
+    padding: 40px;
+    background: #181818;
+    border: 1px solid rgba(123, 44, 191, 0.55);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* FORM GROUP */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+
+/* LABEL */
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* INPUTS */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    background: #101010;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* INPUT FOCUS */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #7b2cbf;
+
+    box-shadow:
+        0 0 0 3px rgba(123, 44, 191, 0.15);
+}
+
+
+/* DATE */
+
+.form-group input[type="date"] {
+    color-scheme: dark;
+}
+
+
+/* SELECT */
+
+.form-group select {
+    cursor: pointer;
+}
+
+
+/* TEXTAREA */
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+/* BOOKING BUTTON */
+
+.booking-form .primary-button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+/* =========================================================
+   BOOKING INFORMATION
+   ========================================================= */
+
+.booking-info {
+    padding: 20px 0;
+}
+
+.booking-info h2 {
+    margin-bottom: 25px;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.booking-info > p:not(.section-label) {
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    line-height: 1.8;
+}
+
+
+/* INFO BOX */
+
+.booking-info-box {
+    margin-bottom: 18px;
+    padding: 20px;
+
+    background: #181818;
+
+    border-left: 4px solid #7b2cbf;
+    border-radius: 10px;
+}
+
+.booking-info-box h3 {
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.booking-info-box p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.booking-info-box a {
+    color: #c77dff;
+    text-decoration: none;
+}
+
+.booking-info-box a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BOOKING MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .booking-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .booking-section {
+        padding: 120px 0 60px;
+    }
+
+    .booking-form {
+        padding: 25px;
+        border-radius: 14px;
+    }
+
+    .booking-info {
+        padding: 0;
+    }
+
+    .booking-info h2 {
+        font-size: 2.2rem;
+    }
+
+}
