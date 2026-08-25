@@ -654,9 +654,21 @@ bookingForm.addEventListener(
         event.preventDefault();
 
 
-        const formData =
-            new FormData(bookingForm);
+        /* =====================================================
+           GET FORM VALUES
+           ===================================================== */
 
+        const customerName =
+            document.getElementById("customer-name").value;
+
+        const customerPhone =
+            document.getElementById("customer-phone").value;
+
+        const customerEmail =
+            document.getElementById("customer-email").value;
+
+        const message =
+            document.getElementById("booking-message").value;
 
         const service =
             serviceSelect.value;
@@ -667,6 +679,56 @@ bookingForm.addEventListener(
         const time =
             timeSelect.value;
 
+
+        /* =====================================================
+           SAVE BOOKING TO SUPABASE
+           ===================================================== */
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("bookings")
+            .insert([
+                {
+                    customer_name: customerName,
+                    customer_phone: customerPhone,
+                    customer_email: customerEmail,
+                    service: service,
+                    booking_date: date,
+                    booking_time: time,
+                    message: message,
+                    status: "pending"
+                }
+            ]);
+
+
+        /* =====================================================
+           CHECK SUPABASE
+           ===================================================== */
+
+        if (error) {
+
+            console.error(
+                "Supabase error:",
+                error
+            );
+
+            alert(
+                "Det gick inte att spara bokningen. Försök igen."
+            );
+
+            return;
+
+        }
+
+
+        /* =====================================================
+           SEND BOOKING TO FORMSPREE
+           ===================================================== */
+
+        const formData =
+            new FormData(bookingForm);
 
         const response =
             await fetch(
@@ -679,6 +741,46 @@ bookingForm.addEventListener(
                     }
                 }
             );
+
+
+        /* =====================================================
+           SHOW SUCCESS MESSAGE
+           ===================================================== */
+
+        if (response.ok) {
+
+            confirmationService.textContent =
+                service;
+
+            confirmationDate.textContent =
+                date;
+
+            confirmationTime.textContent =
+                time;
+
+
+            bookingForm.style.display =
+                "none";
+
+            bookingSuccess.style.display =
+                "block";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        } else {
+
+            alert(
+                "Bokningen sparades, men e-postmeddelandet kunde inte skickas."
+            );
+
+        }
+
+    }
+);
 
 
         if (response.ok) {
