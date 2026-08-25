@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | Adams Service Bilverkstad</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+
+                <img src="images/adams-logo.png"
+                     alt="Adams Service Bilverkstad"
+                     class="logo-image">
+
+            </a>
+
+            <h2>
+                Adams Service — Admin
+            </h2>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="booking-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="section-label">
+                        ADMINISTRATION
+                    </p>
+
+                    <h1>
+                        Bokningar
+                    </h1>
+
+                    <p>
+                        Här kommer Adams bokningar att visas.
+                    </p>
+
+                </div>
+
+
+                <!-- BOOKINGS WILL APPEAR HERE -->
+
+                <div id="bookings-container">
+
+                    <p>
+                        Laddar bokningar...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <strong>
+                    Adams Service Bilverkstad
+                </strong>
+
+                <p>
+                    Låsbomsgatan 11, 589 41 Linköping
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* ==========================================
+           CHECK SUPABASE CONNECTION
+           ========================================== */
+
+        console.log(
+            "Supabase client:",
+            supabaseClient
+        );
+
+    </script>
+
+
+</body>
+
+</html>
