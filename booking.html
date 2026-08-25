@@ -539,6 +539,48 @@
 
     };
 
+/* =====================================================
+   CHECK ALREADY BOOKED TIMES
+   ===================================================== */
+
+async function getBookedTimes() {
+
+    if (!dateInput.value) {
+
+        return [];
+
+    }
+
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("bookings")
+        .select("booking_time")
+        .eq("booking_date", dateInput.value)
+        .neq("status", "cancelled");
+
+
+    if (error) {
+
+        console.error(
+            "Error loading booked times:",
+            error
+        );
+
+        return [];
+
+    }
+
+
+    return data.map(function(booking) {
+
+        return booking.booking_time;
+
+    });
+
+}
 
     /* =====================================================
        GENERATE AVAILABLE TIMES
