@@ -623,7 +623,93 @@
         "change",
         updateAvailableTimes
     );
+/* =====================================================
+   BOOKING CONFIRMATION
+   ===================================================== */
 
+const bookingForm =
+    document.getElementById("bookingForm");
+
+const bookingSuccess =
+    document.getElementById("booking-success");
+
+const confirmationService =
+    document.getElementById("confirmation-service");
+
+const confirmationDate =
+    document.getElementById("confirmation-date");
+
+const confirmationTime =
+    document.getElementById("confirmation-time");
+
+
+bookingForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const formData =
+            new FormData(bookingForm);
+
+
+        const service =
+            serviceSelect.value;
+
+        const date =
+            dateInput.value;
+
+        const time =
+            timeSelect.value;
+
+
+        const response =
+            await fetch(
+                bookingForm.action,
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+
+        if (response.ok) {
+
+            confirmationService.textContent =
+                service;
+
+            confirmationDate.textContent =
+                date;
+
+            confirmationTime.textContent =
+                time;
+
+
+            bookingForm.style.display =
+                "none";
+
+            bookingSuccess.style.display =
+                "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        } else {
+
+            alert(
+                "Det gick inte att skicka bokningsförfrågan. Försök igen."
+            );
+
+        }
+
+    }
+);
 
 </script>
 
