@@ -424,7 +424,41 @@
 <script>
 
     /* =====================================================
-       AUTOMATICALLY SELECT SERVICE
+       GET FORM ELEMENTS
+       ===================================================== */
+
+    const bookingForm =
+        document.getElementById("bookingForm");
+
+    const serviceSelect =
+        document.getElementById("service");
+
+    const dateInput =
+        document.getElementById("booking-date");
+
+    const timeSelect =
+        document.getElementById("booking-time");
+
+
+    /* =====================================================
+       BOOKING SUCCESS ELEMENTS
+       ===================================================== */
+
+    const bookingSuccess =
+        document.getElementById("booking-success");
+
+    const confirmationService =
+        document.getElementById("confirmation-service");
+
+    const confirmationDate =
+        document.getElementById("confirmation-date");
+
+    const confirmationTime =
+        document.getElementById("confirmation-time");
+
+
+    /* =====================================================
+       AUTOMATICALLY SELECT SERVICE FROM URL
        ===================================================== */
 
     const urlParams =
@@ -433,25 +467,11 @@
     const selectedService =
         urlParams.get("service");
 
-    const serviceSelect =
-        document.getElementById("service");
-
     if (selectedService) {
 
         serviceSelect.value = selectedService;
 
     }
-
-
-    /* =====================================================
-       DATE AND TIME ELEMENTS
-       ===================================================== */
-
-    const dateInput =
-        document.getElementById("booking-date");
-
-    const timeSelect =
-        document.getElementById("booking-time");
 
 
     /* =====================================================
@@ -470,8 +490,7 @@
 
     function getOpeningHours(date) {
 
-        const day =
-            date.getDay();
+        const day = date.getDay();
 
         /*
             0 = Sunday
@@ -501,6 +520,27 @@
 
 
     /* =====================================================
+       SERVICE DURATIONS
+       ===================================================== */
+
+    const serviceDurations = {
+
+        "Bilservice": 60,
+
+        "Biltvätt": 30,
+
+        "Däckservice": 60,
+
+        "Rekond": 180,
+
+        "Bilinspektion": 60,
+
+        "Bilhandel": 60
+
+    };
+
+
+    /* =====================================================
        GENERATE AVAILABLE TIMES
        ===================================================== */
 
@@ -520,7 +560,18 @@
         timeSelect.appendChild(defaultOption);
 
 
+        /* No date selected */
+
         if (!dateInput.value) {
+
+            return;
+
+        }
+
+
+        /* No service selected */
+
+        if (!serviceSelect.value) {
 
             return;
 
@@ -535,38 +586,9 @@
             getOpeningHours(selectedDate);
 
 
-        /* =====================================================
-           SERVICE DURATIONS
-           ===================================================== */
-
-        const serviceDurations = {
-
-            "Bilservice": 60,
-
-            "Biltvätt": 30,
-
-            "Däckservice": 60,
-
-            "Rekond": 180,
-
-            "Bilinspektion": 60,
-
-            "Bilhandel": 60
-
-        };
-
-
-        const selectedService =
-            serviceSelect.value;
-
-
         const duration =
-            serviceDurations[selectedService] || 30;
+            serviceDurations[serviceSelect.value];
 
-
-        /* =====================================================
-           CREATE VALID START TIMES
-           ===================================================== */
 
         const startMinutes =
             hours.start * 60;
@@ -574,6 +596,10 @@
         const endMinutes =
             hours.end * 60;
 
+
+        /* =================================================
+           CREATE TIME OPTIONS
+           ================================================= */
 
         for (
             let minutes = startMinutes;
@@ -590,8 +616,8 @@
 
             const time =
                 String(hour).padStart(2, "0")
-                + ":" +
-                String(minute).padStart(2, "0");
+                + ":"
+                + String(minute).padStart(2, "0");
 
 
             const option =
@@ -599,8 +625,7 @@
 
             option.value = time;
 
-            option.textContent =
-                time;
+            option.textContent = time;
 
             timeSelect.appendChild(option);
 
@@ -627,198 +652,145 @@
         "change",
         updateAvailableTimes
     );
-/* =====================================================
-   BOOKING CONFIRMATION
-   ===================================================== */
-
-const bookingForm =
-    document.getElementById("bookingForm");
-
-const bookingSuccess =
-    document.getElementById("booking-success");
-
-const confirmationService =
-    document.getElementById("confirmation-service");
-
-const confirmationDate =
-    document.getElementById("confirmation-date");
-
-const confirmationTime =
-    document.getElementById("confirmation-time");
 
 
-bookingForm.addEventListener(
-    "submit",
-    async function(event) {
+    /* =====================================================
+       BOOKING SUBMISSION
+       ===================================================== */
 
-        event.preventDefault();
+    bookingForm.addEventListener(
+        "submit",
+        async function(event) {
 
-
-        /* =====================================================
-           GET FORM VALUES
-           ===================================================== */
-
-        const customerName =
-            document.getElementById("customer-name").value;
-
-        const customerPhone =
-            document.getElementById("customer-phone").value;
-
-        const customerEmail =
-            document.getElementById("customer-email").value;
-
-        const message =
-            document.getElementById("booking-message").value;
-
-        const service =
-            serviceSelect.value;
-
-        const date =
-            dateInput.value;
-
-        const time =
-            timeSelect.value;
+            event.preventDefault();
 
 
-        /* =====================================================
-           SAVE BOOKING TO SUPABASE
-           ===================================================== */
+            const customerName =
+                document.getElementById("customer-name").value;
 
-        const {
-            data,
-            error
-        } = await supabaseClient
-            .from("bookings")
-            .insert([
-                {
-                    customer_name: customerName,
-                    customer_phone: customerPhone,
-                    customer_email: customerEmail,
-                    service: service,
-                    booking_date: date,
-                    booking_time: time,
-                    message: message,
-                    status: "pending"
-                }
-            ]);
+            const customerPhone =
+                document.getElementById("customer-phone").value;
+
+            const customerEmail =
+                document.getElementById("customer-email").value;
+
+            const message =
+                document.getElementById("booking-message").value;
+
+            const service =
+                serviceSelect.value;
+
+            const date =
+                dateInput.value;
+
+            const time =
+                timeSelect.value;
 
 
-        /* =====================================================
-           CHECK SUPABASE
-           ===================================================== */
+            /* =============================================
+               SAVE BOOKING TO SUPABASE
+               ============================================= */
 
-        if (error) {
-
-            console.error(
-                "Supabase error:",
+            const {
+                data,
                 error
-            );
-
-            alert(
-                "Det gick inte att spara bokningen. Försök igen."
-            );
-
-            return;
-
-        }
-
-
-        /* =====================================================
-           SEND BOOKING TO FORMSPREE
-           ===================================================== */
-
-        const formData =
-            new FormData(bookingForm);
-
-        const response =
-            await fetch(
-                bookingForm.action,
-                {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                        "Accept": "application/json"
+            } = await supabaseClient
+                .from("bookings")
+                .insert([
+                    {
+                        customer_name: customerName,
+                        customer_phone: customerPhone,
+                        customer_email: customerEmail,
+                        service: service,
+                        booking_date: date,
+                        booking_time: time,
+                        message: message,
+                        status: "pending"
                     }
-                }
-            );
+                ]);
 
 
-        /* =====================================================
-           SHOW SUCCESS MESSAGE
-           ===================================================== */
+            /* =============================================
+               CHECK SUPABASE
+               ============================================= */
 
-        if (response.ok) {
+            if (error) {
 
-            confirmationService.textContent =
-                service;
+                console.error(
+                    "Supabase error:",
+                    error
+                );
 
-            confirmationDate.textContent =
-                date;
+                alert(
+                    "Det gick inte att spara bokningen. Försök igen."
+                );
 
-            confirmationTime.textContent =
-                time;
+                return;
 
-
-            bookingForm.style.display =
-                "none";
-
-            bookingSuccess.style.display =
-                "block";
+            }
 
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            /* =============================================
+               SEND TO FORMSPREE
+               ============================================= */
 
-        } else {
+            const formData =
+                new FormData(bookingForm);
 
-            alert(
-                "Bokningen sparades, men e-postmeddelandet kunde inte skickas."
-            );
+
+            const response =
+                await fetch(
+                    bookingForm.action,
+                    {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            /* =============================================
+               SUCCESS
+               ============================================= */
+
+            if (response.ok) {
+
+                confirmationService.textContent =
+                    service;
+
+                confirmationDate.textContent =
+                    date;
+
+                confirmationTime.textContent =
+                    time;
+
+
+                bookingForm.style.display =
+                    "none";
+
+                bookingSuccess.style.display =
+                    "block";
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            } else {
+
+                alert(
+                    "Bokningen sparades, men e-postmeddelandet kunde inte skickas."
+                );
+
+            }
 
         }
-
-    }
-);
-
-
-        if (response.ok) {
-
-            confirmationService.textContent =
-                service;
-
-            confirmationDate.textContent =
-                date;
-
-            confirmationTime.textContent =
-                time;
-
-
-            bookingForm.style.display =
-                "none";
-
-            bookingSuccess.style.display =
-                "block";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        } else {
-
-            alert(
-                "Det gick inte att skicka bokningsförfrågan. Försök igen."
-            );
-
-        }
-
-    }
-);
+    );
 
 </script>
-
  
 
 
