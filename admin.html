@@ -103,19 +103,182 @@
     </footer>
 
 
-    <script>
+   <script>
+
+    /* ==========================================
+       LOAD BOOKINGS FROM SUPABASE
+       ========================================== */
+
+    async function loadBookings() {
+
+        const container =
+            document.getElementById("bookings-container");
+
+
+        const {
+            data: bookings,
+            error
+        } = await supabaseClient
+            .from("bookings")
+            .select("*")
+            .order("booking_date", {
+                ascending: true
+            })
+            .order("booking_time", {
+                ascending: true
+            });
+
 
         /* ==========================================
-           CHECK SUPABASE CONNECTION
+           CHECK FOR ERROR
            ========================================== */
 
-        console.log(
-            "Supabase client:",
-            supabaseClient
-        );
+        if (error) {
 
-    </script>
+            console.error(
+                "Supabase error:",
+                error
+            );
 
+            container.innerHTML = `
+                <p>
+                    Kunde inte läsa bokningarna.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           NO BOOKINGS
+           ========================================== */
+
+        if (!bookings || bookings.length === 0) {
+
+            container.innerHTML = `
+                <p>
+                    Det finns inga bokningar ännu.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           CREATE TABLE
+           ========================================== */
+
+        let tableHTML = `
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-bookings-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Datum</th>
+
+                            <th>Tid</th>
+
+                            <th>Kund</th>
+
+                            <th>Telefon</th>
+
+                            <th>E-post</th>
+
+                            <th>Tjänst</th>
+
+                            <th>Meddelande</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+        `;
+
+
+        /* ==========================================
+           ADD BOOKINGS
+           ========================================== */
+
+        bookings.forEach(function(booking) {
+
+            tableHTML += `
+
+                <tr>
+
+                    <td>
+                        ${booking.booking_date || ""}
+                    </td>
+
+                    <td>
+                        ${booking.booking_time || ""}
+                    </td>
+
+                    <td>
+                        ${booking.customer_name || ""}
+                    </td>
+
+                    <td>
+                        ${booking.customer_phone || ""}
+                    </td>
+
+                    <td>
+                        ${booking.customer_email || ""}
+                    </td>
+
+                    <td>
+                        ${booking.service || ""}
+                    </td>
+
+                    <td>
+                        ${booking.message || ""}
+                    </td>
+
+                    <td>
+                        ${booking.status || "pending"}
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+        tableHTML += `
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        `;
+
+
+        container.innerHTML =
+            tableHTML;
+
+    }
+
+
+    /* ==========================================
+       START
+       ========================================== */
+
+    loadBookings();
+
+</script>
 
 </body>
 
