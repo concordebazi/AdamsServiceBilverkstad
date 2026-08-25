@@ -714,20 +714,30 @@
                CHECK SUPABASE
                ============================================= */
 
-            if (error) {
+      if (error) {
 
-                console.error(
-                    "Supabase error:",
-                    error
-                );
+    console.error(
+        "Supabase error:",
+        error
+    );
 
-                alert(
-                    "Det gick inte att spara bokningen. Försök igen."
-                );
+    if (error.code === "23505") {
 
-                return;
+        alert(
+            "Den här tiden är redan bokad. Vänligen välj en annan tid."
+        );
 
-            }
+    } else {
+
+        alert(
+            "Det gick inte att spara bokningen. Försök igen."
+        );
+
+    }
+
+    return;
+
+}
 
 
             /* =============================================
