@@ -446,7 +446,65 @@ loginForm.addEventListener(
        START
        ========================================== */
 
- 
+
+    /* ==========================================
+       UPDATE BOOKING STATUS
+       ========================================== */
+
+    document.addEventListener(
+        "change",
+        async function(event) {
+
+            if (
+                !event.target.classList.contains("booking-status")
+            ) {
+                return;
+            }
+
+
+            const bookingId =
+                event.target.dataset.id;
+
+
+            const newStatus =
+                event.target.value;
+
+
+            const {
+                error
+            } = await supabaseClient
+                .from("bookings")
+                .update({
+                    status: newStatus
+                })
+                .eq("id", bookingId);
+
+
+            if (error) {
+
+                console.error(
+                    "Status update error:",
+                    error
+                );
+
+                alert(
+                    "Kunde inte uppdatera status."
+                );
+
+                return;
+
+            }
+
+
+            console.log(
+                "Booking status updated:",
+                bookingId,
+                newStatus
+            );
+
+        }
+    );
+
 
 </script>
 
