@@ -373,11 +373,7 @@
 
     </footer>
 
-
-
-  <script>
-
-   <script>
+<script>
 
     /* =====================================================
        AUTOMATICALLY SELECT SERVICE
@@ -491,50 +487,74 @@
             getOpeningHours(selectedDate);
 
 
+        /* =====================================================
+           SERVICE DURATIONS
+           ===================================================== */
+
+        const serviceDurations = {
+
+            "Bilservice": 60,
+
+            "Biltvätt": 30,
+
+            "Däckservice": 60,
+
+            "Rekond": 180,
+
+            "Bilinspektion": 60,
+
+            "Bilhandel": 60
+
+        };
+
+
+        const selectedService =
+            serviceSelect.value;
+
+
+        const duration =
+            serviceDurations[selectedService] || 30;
+
+
+        /* =====================================================
+           CREATE VALID START TIMES
+           ===================================================== */
+
+        const startMinutes =
+            hours.start * 60;
+
+        const endMinutes =
+            hours.end * 60;
+
+
         for (
-            let hour = hours.start;
-            hour < hours.end;
-            hour++
+            let minutes = startMinutes;
+            minutes + duration <= endMinutes;
+            minutes += 30
         ) {
 
-            for (
-                let minute = 0;
-                minute < 60;
-                minute += 30
-            ) {
+            const hour =
+                Math.floor(minutes / 60);
 
-                /*
-                   Do not create times after 16:30
-                   on weekdays or after 15:30
-                   on weekends.
-                */
-
-                if (
-                    hour === hours.end - 1 &&
-                    minute === 30
-                ) {
-
-                    continue;
-
-                }
+            const minute =
+                minutes % 60;
 
 
-                const time =
-                    String(hour).padStart(2, "0")
-                    + ":" +
-                    String(minute).padStart(2, "0");
+            const time =
+                String(hour).padStart(2, "0")
+                + ":" +
+                String(minute).padStart(2, "0");
 
 
-                const option =
-                    document.createElement("option");
+            const option =
+                document.createElement("option");
 
-                option.value = time;
+            option.value = time;
 
-                option.textContent = time;
+            option.textContent =
+                time;
 
-                timeSelect.appendChild(option);
-
-            }
+            timeSelect.appendChild(option);
 
         }
 
@@ -551,45 +571,19 @@
     );
 
 
-</script>
-
     /* =====================================================
-       AUTOMATICALLY SELECT SERVICE
+       UPDATE TIMES WHEN SERVICE CHANGES
        ===================================================== */
 
-    const urlParams =
-        new URLSearchParams(window.location.search);
-
-    const selectedService =
-        urlParams.get("service");
-
-    const serviceSelect =
-        document.getElementById("service");
-
-
-    if (selectedService) {
-
-        serviceSelect.value = selectedService;
-
-    }
-
-
-    /* =====================================================
-       PREVENT PAST DATES
-       ===================================================== */
-
-    const dateInput =
-        document.getElementById("booking-date");
-
-    const today =
-        new Date().toISOString().split("T")[0];
-
-    dateInput.min = today;
-
-
+    serviceSelect.addEventListener(
+        "change",
+        updateAvailableTimes
+    );
 
 
 </script>
+
+ 
 
 
 </body>
