@@ -67,13 +67,83 @@
 
                 <!-- BOOKINGS WILL APPEAR HERE -->
 
-                <div id="bookings-container">
+                <!-- ================= ADMIN LOGIN ================= -->
 
-                    <p>
-                        Laddar bokningar...
-                    </p>
+<div id="admin-login">
 
-                </div>
+    <div class="contact-card">
+
+        <h2>
+            Admininloggning
+        </h2>
+
+        <p>
+            Logga in för att se Adams Service bokningar.
+        </p>
+
+        <form id="login-form">
+
+            <div class="form-group">
+
+                <label for="admin-email">
+                    E-post
+                </label>
+
+                <input type="email"
+                       id="admin-email"
+                       autocomplete="email"
+                       placeholder="Admin e-post"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="admin-password">
+                    Lösenord
+                </label>
+
+                <input type="password"
+                       id="admin-password"
+                       autocomplete="current-password"
+                       placeholder="Lösenord"
+                       required>
+
+            </div>
+
+            <button type="submit"
+                    class="primary-button">
+
+                Logga in
+
+            </button>
+
+        </form>
+
+        <p id="login-error"
+           style="display:none;">
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BOOKINGS ================= -->
+
+<div id="admin-content"
+     style="display:none;">
+
+    <div id="bookings-container">
+
+        <p>
+            Laddar bokningar...
+        </p>
+
+    </div>
+
+</div>
 
             </div>
 
