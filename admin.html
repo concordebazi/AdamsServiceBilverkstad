@@ -639,6 +639,144 @@ const bookingsChannel =
             }
         )
         .subscribe();
+       /* ==========================================
+   CUSTOMER BOOKING DETAILS
+   ========================================== */
+
+const bookingDetailsPanel =
+    document.getElementById("booking-details-panel");
+
+const bookingDetailsContent =
+    document.getElementById("booking-details-content");
+
+const closeBookingDetails =
+    document.getElementById("close-booking-details");
+
+
+document.addEventListener(
+    "click",
+    async function(event) {
+
+        if (
+            !event.target.classList.contains("customer-details-button")
+        ) {
+            return;
+        }
+
+
+        const bookingId =
+            event.target.dataset.id;
+
+
+        const {
+            data: booking,
+            error
+        } = await supabaseClient
+            .from("bookings")
+            .select("*")
+            .eq("id", bookingId)
+            .single();
+
+
+        if (error) {
+
+            console.error(
+                "Booking details error:",
+                error
+            );
+
+            alert(
+                "Kunde inte läsa bokningsdetaljer."
+            );
+
+            return;
+
+        }
+
+
+        bookingDetailsContent.innerHTML = `
+
+            <div class="booking-details-grid">
+
+                <div>
+                    <strong>Kund</strong>
+                    <p>${booking.customer_name || ""}</p>
+                </div>
+
+                <div>
+                    <strong>Telefon</strong>
+                    <p>
+                        <a href="tel:${booking.customer_phone || ""}">
+                            ${booking.customer_phone || ""}
+                        </a>
+                    </p>
+                </div>
+
+                <div>
+                    <strong>E-post</strong>
+                    <p>
+                        <a href="mailto:${booking.customer_email || ""}">
+                            ${booking.customer_email || ""}
+                        </a>
+                    </p>
+                </div>
+
+                <div>
+                    <strong>Tjänst</strong>
+                    <p>${booking.service || ""}</p>
+                </div>
+
+                <div>
+                    <strong>Datum</strong>
+                    <p>${booking.booking_date || ""}</p>
+                </div>
+
+                <div>
+                    <strong>Tid</strong>
+                    <p>${booking.booking_time || ""}</p>
+                </div>
+
+                <div>
+                    <strong>Status</strong>
+                    <p>${booking.status || "pending"}</p>
+                </div>
+
+                <div>
+                    <strong>Skapad</strong>
+                    <p>${booking.created_at || ""}</p>
+                </div>
+
+                <div class="booking-details-message">
+                    <strong>Meddelande</strong>
+                    <p>${booking.message || "Inget meddelande."}</p>
+                </div>
+
+            </div>
+        `;
+
+
+        bookingDetailsPanel.style.display =
+            "block";
+
+
+        bookingDetailsPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+);
+
+
+closeBookingDetails.addEventListener(
+    "click",
+    function() {
+
+        bookingDetailsPanel.style.display =
+            "none";
+
+    }
+);
 </script>
 
 </body>
