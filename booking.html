@@ -625,7 +625,8 @@ async function getBookedTimes() {
 
         const hours =
             getOpeningHours(selectedDate);
-
+const bookedTimes =
+    await getBookedTimes();
 
         const duration =
             serviceDurations[serviceSelect.value];
