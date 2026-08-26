@@ -746,12 +746,55 @@ document.addEventListener(
                     <p>${booking.created_at || ""}</p>
                 </div>
 
-                <div class="booking-details-message">
-                    <strong>Meddelande</strong>
-                    <p>${booking.message || "Inget meddelande."}</p>
-                </div>
+               <div class="booking-details-message">
 
-            </div>
+    <strong>Meddelande</strong>
+
+    <p>
+        ${booking.message || "Inget meddelande."}
+    </p>
+
+</div>
+
+
+<div class="booking-details-actions">
+
+    <button
+        type="button"
+        class="booking-action-button confirm-booking"
+        data-id="${booking.id}"
+        data-status="confirmed">
+
+        🟢 Bekräfta
+
+    </button>
+
+
+    <button
+        type="button"
+        class="booking-action-button complete-booking"
+        data-id="${booking.id}"
+        data-status="completed">
+
+        🔵 Markera som klar
+
+    </button>
+
+
+    <button
+        type="button"
+        class="booking-action-button cancel-booking"
+        data-id="${booking.id}"
+        data-status="cancelled">
+
+        🔴 Avboka
+
+    </button>
+
+</div>
+
+
+</div>
         `;
 
 
@@ -774,6 +817,62 @@ closeBookingDetails.addEventListener(
 
         bookingDetailsPanel.style.display =
             "none";
+
+    }
+);
+       /* ==========================================
+   BOOKING DETAIL ACTION BUTTONS
+   ========================================== */
+
+document.addEventListener(
+    "click",
+    async function(event) {
+
+        if (
+            !event.target.classList.contains("booking-action-button")
+        ) {
+            return;
+        }
+
+
+        const bookingId =
+            event.target.dataset.id;
+
+        const newStatus =
+            event.target.dataset.status;
+
+
+        const {
+            error
+        } = await supabaseClient
+            .from("bookings")
+            .update({
+                status: newStatus
+            })
+            .eq("id", bookingId);
+
+
+        if (error) {
+
+            console.error(
+                "Booking action error:",
+                error
+            );
+
+            alert(
+                "Kunde inte uppdatera bokningen."
+            );
+
+            return;
+
+        }
+
+
+        bookingDetailsPanel.style.display =
+            "none";
+
+
+        await loadBookings();
 
     }
 );
