@@ -1779,3 +1779,65 @@ img {
     }
 
 }
+/* =========================================================
+   ADMIN BOOKING ACTION BUTTONS
+   ========================================================= */
+
+.booking-details-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 18px !important;
+
+    background: #ffffff !important;
+}
+
+.booking-action-button {
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.booking-action-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.confirm-booking {
+    background: #e8f5e9;
+    color: #237a35;
+}
+
+.complete-booking {
+    background: #e7f3ff;
+    color: #1769aa;
+}
+
+.cancel-booking {
+    background: #fdeaea;
+    color: #b3261e;
+}
+
+
+@media (max-width: 650px) {
+
+    .booking-details-actions {
+        flex-direction: column;
+    }
+
+    .booking-action-button {
+        width: 100%;
+    }
+
+}
