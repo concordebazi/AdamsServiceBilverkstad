@@ -1977,3 +1977,112 @@ img {
     }
 
 }
+/* =========================================================
+   MOBILE NAVIGATION IMPROVEMENT
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .navigation {
+        padding: 15px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(8, 8, 8, 0.98),
+                rgba(35, 10, 48, 0.98)
+            );
+
+        border-top: 1px solid #7b2cbf;
+
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+
+
+    .navigation a {
+        padding: 15px 18px;
+
+        color: #ffffff;
+
+        font-weight: 600;
+        text-align: left;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+
+        border-radius: 7px;
+
+        transition: 0.2s ease;
+    }
+
+
+    .navigation a:hover {
+        background:
+            rgba(123, 44, 191, 0.18);
+
+        padding-left: 24px;
+    }
+
+
+    /* BOOKING BUTTON */
+
+    .navigation .mobile-booking-link {
+        margin-top: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #7b2cbf,
+                #9d4edd
+            );
+
+        color: #ffffff;
+
+        text-align: center;
+
+        border: none;
+
+        border-radius: 9px;
+
+        font-weight: 700;
+    }
+
+
+    .navigation .mobile-booking-link:hover {
+        background:
+            linear-gradient(
+                135deg,
+                #9d4edd,
+                #c77dff
+            );
+
+        padding-left: 18px;
+    }
+
+
+    /* HAMBURGER BUTTON */
+
+    .hamburger {
+        width: 46px;
+        height: 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        background:
+            rgba(123, 44, 191, 0.12);
+
+        border: 1px solid #7b2cbf;
+
+        border-radius: 10px;
+
+        color: #ffffff;
+
+        font-size: 1.6rem;
+    }
+
+}
