@@ -1656,3 +1656,18 @@ img {
 .admin-bookings-table tbody tr.status-cancelled td {
     border-color: #c9a7e8 !important;
 }
+/* =========================================================
+   ADMIN CLICKABLE CONTACT LINKS
+   ========================================================= */
+
+.admin-contact-link {
+    color: #6f2da8;
+    font-weight: 700;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.admin-contact-link:hover {
+    color: #9d4edd;
+    text-decoration: underline;
+}
