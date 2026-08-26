@@ -381,12 +381,26 @@ loginForm.addEventListener(
                     </td>
 
                     <td>
-                        ${booking.customer_phone || ""}
-                    </td>
 
-                    <td>
-                        ${booking.customer_email || ""}
-                    </td>
+    <a href="tel:${booking.customer_phone || ""}"
+       class="admin-contact-link">
+
+        ${booking.customer_phone || ""}
+
+    </a>
+
+</td>>
+
+                   <td>
+
+    <a href="mailto:${booking.customer_email || ""}"
+       class="admin-contact-link">
+
+        ${booking.customer_email || ""}
+
+    </a>
+
+</td>
 
                     <td>
                         ${booking.service || ""}
