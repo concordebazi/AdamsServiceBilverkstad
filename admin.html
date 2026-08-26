@@ -543,6 +543,44 @@ refreshBookingsButton.addEventListener(
 
     }
 );
+       /* ==========================================
+   REALTIME BOOKING UPDATES
+   ========================================== */
+
+const bookingsChannel =
+    supabaseClient
+        .channel("bookings-realtime")
+        .on(
+            "postgres_changes",
+            {
+                event: "*",
+                schema: "public",
+                table: "bookings"
+            },
+            async function(payload) {
+
+                console.log(
+                    "Realtime booking change:",
+                    payload
+                );
+
+                const {
+                    data: {
+                        session
+                    }
+                } =
+                    await supabaseClient.auth.getSession();
+
+
+                if (session) {
+
+                    loadBookings();
+
+                }
+
+            }
+        )
+        .subscribe();
 </script>
 
 </body>
