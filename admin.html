@@ -142,14 +142,49 @@
 
     🔄 Uppdatera bokningar
 
-</button>
-    <div id="bookings-container">
 
-        <p>
-            Laddar bokningar...
-        </p>
+</button>
+
+
+<!-- ================= BOOKING DETAILS PANEL ================= -->
+
+<div id="booking-details-panel"
+     class="booking-details-panel"
+     style="display:none;">
+
+    <div class="booking-details-header">
+
+        <h2>
+            Bokningsdetaljer
+        </h2>
+
+        <button type="button"
+                id="close-booking-details"
+                class="booking-details-close">
+
+            ✕
+
+        </button>
 
     </div>
+
+
+    <div id="booking-details-content">
+
+    </div>
+
+</div>
+
+
+<!-- ================= BOOKINGS TABLE ================= -->
+
+<div id="bookings-container">
+
+    <p>
+        Laddar bokningar...
+    </p>
+
+</div>
 
 </div>
 
@@ -398,7 +433,7 @@ loginForm.addEventListener(
 
     </a>
 
-</td>>
+</td>
 
                    <td>
 
