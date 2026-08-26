@@ -1671,3 +1671,21 @@ img {
     color: #9d4edd;
     text-decoration: underline;
 }
+/* =========================================================
+   ADMIN CUSTOMER DETAILS BUTTON
+   ========================================================= */
+
+.customer-details-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #6f2da8;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.customer-details-button:hover {
+    color: #9d4edd;
+}
