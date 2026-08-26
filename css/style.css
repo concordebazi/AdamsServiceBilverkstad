@@ -2194,3 +2194,91 @@ img {
     }
 
 }
+/* =========================================================
+   ADMIN TABLE — DESKTOP IMPROVEMENT
+   ========================================================= */
+
+@media (min-width: 701px) {
+
+    .admin-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .admin-bookings-table {
+        width: 100%;
+        min-width: 1100px;
+        table-layout: auto;
+    }
+
+    .admin-bookings-table th,
+    .admin-bookings-table td {
+        padding: 14px 16px;
+        vertical-align: middle;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: anywhere;
+        line-height: 1.4;
+    }
+
+    /* DATUM */
+
+    .admin-bookings-table th:nth-child(1),
+    .admin-bookings-table td:nth-child(1) {
+        min-width: 115px;
+        white-space: nowrap;
+    }
+
+    /* TID */
+
+    .admin-bookings-table th:nth-child(2),
+    .admin-bookings-table td:nth-child(2) {
+        min-width: 90px;
+        white-space: nowrap;
+    }
+
+    /* KUND */
+
+    .admin-bookings-table th:nth-child(3),
+    .admin-bookings-table td:nth-child(3) {
+        min-width: 130px;
+    }
+
+    /* TELEFON */
+
+    .admin-bookings-table th:nth-child(4),
+    .admin-bookings-table td:nth-child(4) {
+        min-width: 135px;
+        white-space: nowrap;
+    }
+
+    /* E-POST */
+
+    .admin-bookings-table th:nth-child(5),
+    .admin-bookings-table td:nth-child(5) {
+        min-width: 190px;
+    }
+
+    /* TJÄNST */
+
+    .admin-bookings-table th:nth-child(6),
+    .admin-bookings-table td:nth-child(6) {
+        min-width: 130px;
+    }
+
+    /* MEDDELANDE */
+
+    .admin-bookings-table th:nth-child(7),
+    .admin-bookings-table td:nth-child(7) {
+        min-width: 200px;
+    }
+
+    /* STATUS */
+
+    .admin-bookings-table th:nth-child(8),
+    .admin-bookings-table td:nth-child(8) {
+        min-width: 155px;
+        white-space: nowrap;
+    }
+
+}
