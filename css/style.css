@@ -1899,3 +1899,81 @@ img {
     }
 
 }
+/* =========================================================
+   MOBILE HEADER + HAMBURGER MENU
+   ========================================================= */
+
+.hamburger {
+    display: none;
+    background: transparent;
+    border: 1px solid #7b2cbf;
+    color: #ffffff;
+    font-size: 1.8rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .nav-container {
+        min-height: 72px;
+        gap: 12px;
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .logo-image {
+        width: 120px;
+        max-width: 120px;
+        height: auto;
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navigation {
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 10px 0;
+
+        background: rgba(8, 8, 8, 0.98);
+
+        border-top: 1px solid rgba(123, 44, 191, 0.4);
+        border-bottom: 1px solid rgba(123, 44, 191, 0.4);
+    }
+
+    .navigation.active {
+        display: flex;
+    }
+
+    .navigation a {
+        width: 100%;
+        padding: 14px 22px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .call-button {
+        display: none;
+    }
+
+}
