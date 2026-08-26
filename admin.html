@@ -376,9 +376,18 @@ loginForm.addEventListener(
                         ${booking.booking_time || ""}
                     </td>
 
-                    <td>
-                        ${booking.customer_name || ""}
-                    </td>
+                   <td>
+
+    <button
+        type="button"
+        class="customer-details-button"
+        data-id="${booking.id}">
+
+        ${booking.customer_name || ""}
+
+    </button>
+
+</td>
 
                     <td>
 
