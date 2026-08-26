@@ -1591,3 +1591,37 @@ img {
     color: #111111;
     font-weight: 600;
 }
+/* =========================================================
+   ADMIN TABLE - LIGHT BACKGROUND & PURPLE/LIGHT BORDERS
+   ========================================================= */
+
+.admin-bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff !important;
+    color: #222222 !important;
+}
+
+.admin-bookings-table th,
+.admin-bookings-table td {
+    border: 1px solid #c9a7e8 !important;
+    padding: 12px 14px;
+    color: #222222;
+}
+
+.admin-bookings-table th {
+    background-color: #6f2da8 !important;
+    color: #ffffff !important;
+}
+
+.admin-bookings-table tbody tr {
+    background-color: #ffffff !important;
+}
+
+.admin-bookings-table tbody tr:nth-child(even) {
+    background-color: #f5eefb !important;
+}
+
+.admin-bookings-table tbody tr:hover {
+    background-color: #eadcf5 !important;
+}
