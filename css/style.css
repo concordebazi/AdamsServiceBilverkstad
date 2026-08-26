@@ -2256,7 +2256,7 @@ img {
 
     .admin-bookings-table th:nth-child(5),
     .admin-bookings-table td:nth-child(5) {
-        min-width: 190px;
+        min-width: 200px;
     }
 
     /* TJÄNST */
