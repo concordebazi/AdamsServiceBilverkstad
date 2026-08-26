@@ -1625,3 +1625,34 @@ img {
 .admin-bookings-table tbody tr:hover {
     background-color: #eadcf5 !important;
 }
+/* =========================================================
+   ADMIN BOOKING ROW STATUS COLORS
+   ========================================================= */
+
+/* Pending */
+.admin-bookings-table tbody tr.status-pending {
+    background-color: #fff8dc !important;
+}
+
+/* Confirmed */
+.admin-bookings-table tbody tr.status-confirmed {
+    background-color: #e8f5e9 !important;
+}
+
+/* Completed */
+.admin-bookings-table tbody tr.status-completed {
+    background-color: #e7f3ff !important;
+}
+
+/* Cancelled */
+.admin-bookings-table tbody tr.status-cancelled {
+    background-color: #fdeaea !important;
+}
+
+/* Keep dividing lines visible */
+.admin-bookings-table tbody tr.status-pending td,
+.admin-bookings-table tbody tr.status-confirmed td,
+.admin-bookings-table tbody tr.status-completed td,
+.admin-bookings-table tbody tr.status-cancelled td {
+    border-color: #c9a7e8 !important;
+}
