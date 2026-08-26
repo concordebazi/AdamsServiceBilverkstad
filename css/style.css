@@ -1841,3 +1841,13 @@ img {
     }
 
 }
+.admin-footer-link {
+    color: #c77dff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.admin-footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
