@@ -366,7 +366,7 @@ loginForm.addEventListener(
 
             tableHTML += `
 
-                <tr>
+               <tr class="booking-row status-${booking.status || 'pending'}">
 
                     <td>
                         ${booking.booking_date || ""}
