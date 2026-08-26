@@ -513,7 +513,36 @@ loginForm.addEventListener(
         }
     );
 
+/* ==========================================
+   MANUAL REFRESH BOOKINGS
+   ========================================== */
 
+const refreshBookingsButton =
+    document.getElementById("refresh-bookings");
+
+
+refreshBookingsButton.addEventListener(
+    "click",
+    async function() {
+
+        refreshBookingsButton.textContent =
+            "🔄 Uppdaterar...";
+
+        refreshBookingsButton.disabled =
+            true;
+
+
+        await loadBookings();
+
+
+        refreshBookingsButton.textContent =
+            "🔄 Uppdatera bokningar";
+
+        refreshBookingsButton.disabled =
+            false;
+
+    }
+);
 </script>
 
 </body>
