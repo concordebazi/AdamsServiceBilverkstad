@@ -574,11 +574,11 @@ async function getBookedTimes() {
     }
 
 
-    return data.map(function(booking) {
+   return data.map(function(booking) {
 
-        return booking.booking_time;
+    return booking.booking_time.substring(0, 5);
 
-    });
+});
 
 }
 
