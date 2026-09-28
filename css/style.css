@@ -2376,3 +2376,18 @@ img {
     .map-modal-panel { padding: 16px; }
     .map-modal-panel iframe { height: 55vh; }
 }
+.hero-map-preview {
+    display: block;
+}
+
+.hero-map-preview iframe {
+    pointer-events: none;
+}
+
+.map-modal {
+    display: none;
+}
+
+.map-modal:target {
+    display: grid;
+}
