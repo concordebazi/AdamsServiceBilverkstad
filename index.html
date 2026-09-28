@@ -91,8 +91,8 @@
                 
 <div class="hero-contact-info">
 
-  <button class="hero-map-preview" id="open-map" type="button"
-        aria-label="Öppna karta till Adams Service på Låsbomsgatan 11">
+  <a class="hero-map-preview" href="#map-modal"
+   aria-label="Öppna stor karta till Adams Service">
     <iframe
         title="Karta över Adams Service i Linköping"
         src="https://www.google.com/maps?q=L%C3%A5sbomsgatan%2011%2C%20589%2041%20Link%C3%B6ping&output=embed"
@@ -100,7 +100,7 @@
         tabindex="-1">
     </iframe>
     <span>📍 Låsbomsgatan 11 · Visa större karta ↗</span>
-</button>
+</a>
 
 
 
@@ -641,5 +641,26 @@
     );
 
 </script>
+    <div class="map-modal" id="map-modal"
+     role="dialog" aria-label="Karta till Adams Service">
+    <div class="map-modal-panel">
+        <a class="map-close" href="#home" aria-label="Stäng kartan">✕</a>
+
+        <h2>Hitta till Adams Service</h2>
+        <p>Låsbomsgatan 11, 589 41 Linköping</p>
+
+        <iframe
+            title="Stor karta över Adams Service"
+            src="https://www.google.com/maps?q=L%C3%A5sbomsgatan%2011%2C%20589%2041%20Link%C3%B6ping&output=embed"
+            loading="lazy">
+        </iframe>
+
+        <a class="map-directions"
+           href="https://www.google.com/maps/search/?api=1&query=L%C3%A5sbomsgatan%2011%2C%20589%2041%20Link%C3%B6ping"
+           target="_blank" rel="noopener noreferrer">
+            Öppna vägbeskrivning ↗
+        </a>
+    </div>
+</div>
 </body>
 </html>
