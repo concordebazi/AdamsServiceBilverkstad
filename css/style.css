@@ -2543,3 +2543,608 @@ img {
         font-size: 0.8rem;
     }
 }
+/* =========================================================
+   ADAMS SERVICE - SUMMER OFFER PAGE
+   ========================================================= */
+
+.summer-offer-page {
+    background: #0b0b0b;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.summer-back-link {
+    padding: 10px 18px;
+
+    color: #111111;
+    background: #ffd900;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    transition: 0.3s ease;
+}
+
+.summer-back-link:hover {
+    background: #ffffff;
+    transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   SUMMER HERO
+   ========================================================= */
+
+.summer-offer-hero {
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 0 80px;
+
+    background:
+        radial-gradient(
+            circle at 80% 35%,
+            rgba(255, 217, 0, 0.18),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #080808 0%,
+            #151515 60%,
+            #211c00 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* LARGE DECORATIVE STAR */
+
+.summer-offer-hero::after {
+    content: "★";
+
+    position: absolute;
+
+    right: 6%;
+    top: 50%;
+
+    transform: translateY(-50%) rotate(-10deg);
+
+    color: #ffd900;
+
+    font-size: clamp(15rem, 28vw, 30rem);
+
+    line-height: 1;
+
+    opacity: 0.08;
+
+    pointer-events: none;
+}
+
+
+.summer-hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+
+.summer-hero-star {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+
+    margin-bottom: 20px;
+
+    background: #ffd900;
+    color: #111111;
+
+    border-radius: 50%;
+
+    font-size: 2.6rem;
+
+    box-shadow:
+        0 0 35px rgba(255, 217, 0, 0.30);
+}
+
+
+.summer-kicker {
+    margin-bottom: 15px;
+
+    color: #ffd900;
+
+    font-size: 0.85rem;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.summer-offer-hero h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+
+    line-height: 0.83;
+
+    letter-spacing: -5px;
+}
+
+
+.summer-discount {
+    display: inline-block;
+
+    margin-top: 32px;
+
+    padding: 12px 22px;
+
+    background: #ffd900;
+    color: #111111;
+
+    border-radius: 8px;
+
+    font-size: clamp(1.4rem, 4vw, 2.5rem);
+    font-weight: 900;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        8px 8px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+.summer-intro {
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PRICE SECTION
+   ========================================================= */
+
+.summer-prices-section {
+    padding: 100px 0;
+
+    background: #f5f3f7;
+    color: #111111;
+}
+
+
+.summer-prices-heading {
+    margin-bottom: 50px;
+}
+
+
+.summer-prices-heading .section-label {
+    color: #6f2da8;
+}
+
+
+.summer-prices-heading h2 {
+    margin-top: 5px;
+
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+}
+
+
+/* =========================================================
+   PRICE LIST
+   ========================================================= */
+
+.summer-price-list {
+    display: grid;
+    gap: 14px;
+}
+
+
+.summer-price-item {
+    display: grid;
+
+    grid-template-columns: 75px 1fr auto;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 28px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #ded9e2;
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.summer-price-item:hover {
+    transform: translateY(-4px);
+
+    border-color: #ffd900;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* NUMBER */
+
+.summer-price-number {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    background: #111111;
+    color: #ffd900;
+
+    border-radius: 50%;
+
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+
+/* SERVICE TEXT */
+
+.summer-price-content h3 {
+    margin: 0 0 7px;
+
+    color: #111111;
+
+    font-size: 1.25rem;
+}
+
+
+.summer-price-content p {
+    max-width: 750px;
+
+    margin: 0;
+
+    color: #68636c;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* PRICE */
+
+.summer-price {
+    min-width: 145px;
+
+    color: #4b146d;
+
+    text-align: right;
+
+    font-size: 2.4rem;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+.summer-price span {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   FEATURED PRICE
+   ========================================================= */
+
+.featured-price {
+    position: relative;
+
+    border: 2px solid #ffd900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fffdf0,
+            #ffffff
+        );
+}
+
+
+.popular-label {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    padding: 4px 8px;
+
+    background: #ffd900;
+    color: #111111;
+
+    border-radius: 4px;
+
+    font-size: 0.65rem;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.summer-offer-cta {
+    position: relative;
+
+    padding: 110px 0;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 217, 0, 0.12),
+            transparent 45%
+        ),
+        #0b0b0b;
+}
+
+
+.cta-star {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #ffd900;
+
+    font-size: 3rem;
+}
+
+
+.summer-offer-cta > .container > p:first-of-type {
+    color: #ffd900;
+
+    font-size: 0.8rem;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.summer-offer-cta h2 {
+    margin: 12px 0 18px;
+
+    color: #ffffff;
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+}
+
+
+.summer-cta-text {
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 1.05rem;
+}
+
+
+.summer-cta-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+}
+
+
+.summer-book-button,
+.summer-call-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 55px;
+
+    padding: 0 28px;
+
+    border-radius: 8px;
+
+    font-weight: 900;
+
+    transition: 0.3s ease;
+}
+
+
+.summer-book-button {
+    background: #ffd900;
+    color: #111111;
+}
+
+
+.summer-book-button:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+}
+
+
+.summer-call-button {
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+}
+
+
+.summer-call-button:hover {
+    border-color: #ffd900;
+    color: #ffd900;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .summer-price-item {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .summer-price {
+        grid-column: 2;
+
+        text-align: left;
+
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .summer-offer-hero {
+        min-height: auto;
+
+        padding:
+            130px 0
+            70px;
+    }
+
+
+    .summer-hero-star {
+        width: 58px;
+        height: 58px;
+
+        font-size: 2rem;
+    }
+
+
+    .summer-offer-hero h1 {
+        font-size: clamp(3.3rem, 18vw, 5rem);
+
+        letter-spacing: -3px;
+    }
+
+
+    .summer-discount {
+        margin-top: 25px;
+
+        font-size: 1.5rem;
+    }
+
+
+    .summer-intro {
+        margin-top: 28px;
+
+        font-size: 1rem;
+    }
+
+
+    .summer-prices-section {
+        padding: 70px 0;
+    }
+
+
+    .summer-price-item {
+        display: block;
+
+        padding: 24px 22px;
+    }
+
+
+    .summer-price-number {
+        width: 45px;
+        height: 45px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .summer-price-content h3 {
+        font-size: 1.15rem;
+    }
+
+
+    .summer-price {
+        margin-top: 18px;
+
+        text-align: left;
+
+        font-size: 2.2rem;
+    }
+
+
+    .summer-offer-cta {
+        padding: 80px 0;
+    }
+
+
+    .summer-cta-buttons {
+        flex-direction: column;
+    }
+
+
+    .summer-book-button,
+    .summer-call-button {
+        width: 100%;
+    }
+
+
+    .summer-back-link {
+        padding: 8px 11px;
+
+        font-size: 0.75rem;
+    }
+
+}
